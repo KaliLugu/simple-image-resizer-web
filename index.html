@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionneur d'image</title>
+    <link rel="stylesheet" href="css.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Redimensionneur d'image</h1>
+
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <div class="upload-text">Cliquez pour sélectionner une image</div>
+            <div class="upload-hint">ou glissez-déposez votre fichier ici</div>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="editor-section" id="editorSection">
+            <div class="status-bar">
+                <span id="imageInfo">Image chargée</span>
+                <span id="fileSize"></span>
+            </div>
+
+            <div class="editor-grid">
+                <div class="canvas-container">
+                    <canvas id="mainCanvas"></canvas>
+                    
+                    <div class="preview-section">
+                        <div class="preview-title">Aperçu final</div>
+                        <canvas id="previewCanvas" class="preview-canvas"></canvas>
+                        <div class="crop-info" id="cropInfo">
+                            Sélectionnez une zone à recadrer
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-panel">
+                    <div class="control-group">
+                        <label class="control-label">Taille de sortie</label>
+                        <div class="size-buttons">
+                            <div class="size-btn" onclick="setSize(128)">128px</div>
+                            <div class="size-btn active" onclick="setSize(256)">256px</div>
+                            <div class="size-btn" onclick="setSize(512)">512px</div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Position</label>
+                        <div class="input-row">
+                            <input type="number" id="cropX" placeholder="X" onchange="updateCrop()">
+                            <input type="number" id="cropY" placeholder="Y" onchange="updateCrop()">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Taille du recadrage</label>
+                        <input type="number" id="cropSize" placeholder="Taille" onchange="updateCrop()">
+                    </div>
+
+                    <button class="button button-secondary" onclick="resetCrop()">Réinitialiser</button>
+                    <button class="button" onclick="downloadImage()" id="downloadBtn" disabled>Télécharger</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

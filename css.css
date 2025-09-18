@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.upload-area {
+    border: 2px dashed #444;
+    border-radius: 8px;
+    padding: 48px 24px;
+    text-align: center;
+    margin-bottom: 32px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: #161616;
+}
+
+.upload-area:hover {
+    border-color: #666;
+    background: #1c1c1c;
+}
+
+.upload-area.dragover {
+    border-color: #007acc;
+    background: #001122;
+}
+
+.upload-text {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+}
+
+.upload-hint {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+#fileInput {
+    display: none;
+}
+
+.editor-section {
+    display: none;
+}
+
+.editor-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 32px;
+    margin-top: 24px;
+}
+
+.canvas-container {
+    background: #161616;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.controls-panel {
+    background: #161616;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+canvas {
+    border: 1px solid #333;
+    border-radius: 6px;
+    cursor: crosshair;
+    max-width: 100%;
+    background: #0a0a0a;
+}
+
+.preview-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.preview-title {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 12px;
+}
+
+.preview-canvas {
+    border: 1px solid #444;
+    border-radius: 50%;
+    background: #222;
+}
+
+.crop-info {
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+.control-group {
+    margin-bottom: 24px;
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+.size-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.size-btn {
+    padding: 10px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #ccc;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.size-btn:hover {
+    background: #333;
+    border-color: #555;
+}
+
+.size-btn.active {
+    background: #007acc;
+    border-color: #007acc;
+    color: #fff;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.button {
+    padding: 12px 20px;
+    background: #007acc;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.button:hover:not(:disabled) {
+    background: #0066aa;
+}
+
+.button:disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.button-secondary {
+    background: #333;
+    color: #ccc;
+}
+
+.button-secondary:hover {
+    background: #444;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .editor-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+}
